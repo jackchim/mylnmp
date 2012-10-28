@@ -150,10 +150,10 @@ if [ -s pcre-8.12.tar.gz ]; then
   wget -c http://soft.vpser.net/web/pcre/pcre-8.12.tar.gz
 fi
 
-if [ -s nginx-1.2.3.tar.gz ]; then
-  echo "nginx-1.0.15.tar.gz [found]"
+if [ -s nginx-1.2.1.tar.gz ]; then
+  echo "nginx-1.2.1.tar.gz [found]"
   else
-  echo "Error: nginx-1.0.15.tar.gz not found!!!download now......"
+  echo "Error: nginx-1.2.1.tar.gz not found!!!download now......"
   wget -c http://nginx.org/download/nginx-1.2.1.tar.gz
 fi
 
@@ -197,13 +197,6 @@ if [ -s phpmyadmin-latest.tar.gz ]; then
   else
   echo "Error: phpmyadmin-latest.tar.gz not found!!!download now......"
   wget -c http://soft.vpser.net/datebase/phpmyadmin/phpmyadmin-latest.tar.gz
-fi
-
-if [ -s p.tar.gz ]; then
-  echo "p.tar.gz [found]"
-  else
-  echo "Error: p.tar.gz not found!!!download now......"
-  wget -c http://soft.vpser.net/prober/p.tar.gz
 fi
 
 if [ -s autoconf-2.13.tar.gz ]; then
@@ -499,8 +492,7 @@ eof
 
 #prober
 cd $cur_dir
-tar zxvf p.tar.gz
-cp p.php /home/www/p.php
+cp 1.php /home/www/1.php
 
 cp conf/index.html /home/www/index.html
 echo "============================phpMyAdmin install================================="
