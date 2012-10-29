@@ -205,6 +205,22 @@ if [ -s autoconf-2.13.tar.gz ]; then
   echo "Error: autoconf-2.13.tar.gz not found!!!download now......"
   wget -c http://soft.vpser.net/lib/autoconf/autoconf-2.13.tar.gz
 fi
+
+if [ -s substitutions4nginx-read-only.zip ]; then
+    echo "substitutions4nginx-read-only.zip [found]"
+else
+    echo "Error: substitutions4nginx-read-only.zip not found!!! download now...."
+    wget -c http://you.googlecode.com/files/substitutions4nginx-read-only.zip
+fi
+
+if [ -s ngx_cache_purge-1.6.tar.gz ]; then
+    echo " ngx_cache_purge-1.6.tar.gz [found]"
+else
+    echo "Error:  ngx_cache_purge-1.6.tar.gz not found!!! download now...."
+    wget -c http://you.googlecode.com/files/ngx_cache_purge-1.6.tar.gz
+fi
+
+
 echo "============================check files=================================="
 
 cd $cur_dir
@@ -447,13 +463,9 @@ make && make install
 cd ../
 
 ldconfig
-yum -y install unzip
-wget -c http://you.googlecode.com/files/substitutions4nginx-read-only.zip
+
 unzip substitutions4nginx-read-only.zip
-
-wget -c http://you.googlecode.com/files/ngx_cache_purge-1.6.tar.gz
 tar zxvf ngx_cache_purge-1.6.tar.gz
-
 tar zxvf nginx-1.2.1.tar.gz
 cd nginx-1.2.1
 ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_realip_module --with-http_sub_module  --add-module=$cur_dir/substitutions4nginx-read-only --add-module=$cur_dir/ngx_cache_purge-1.6
